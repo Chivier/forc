@@ -1,3 +1,12 @@
+/*
+ * @Author       : Chivier Humber
+ * @Date         : 2021-02-16 14:29:30
+ * @LastEditors  : Chivier Humber
+ * @LastEditTime : 2021-02-17 00:34:28
+ * @Description  : file content
+ * @FilePath     : /forc/farray/farray.h
+ */
+
 #include <assert.h>
 #include <chrono>
 #include <cstdio>
