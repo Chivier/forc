@@ -2,7 +2,7 @@
  * @Author       : Chivier Humber
  * @Date         : 2021-03-04 22:26:02
  * @LastEditors  : Chivier Humber
- * @LastEditTime : 2021-03-04 23:32:46
+ * @LastEditTime : 2021-03-06 01:04:43
  * @Description  : file content
  * @FilePath     : /forc/time/fime.h
  */
@@ -12,6 +12,7 @@
 #include <time.h>
 #include <stdio.h>
 #include <string>
+#include <iostream>
 #include <sys/time.h>
 
 #define FIME_TIME_FORMAT_MAX_LENGTH 100
@@ -30,7 +31,7 @@ struct fime_t {
         gettimeofday(&fime_time, NULL);
     }
 
-    std::string print_time_to_string() {
+    std::string print_time_to_string() const {
         // Return a string of current time
         // Format example: 08/19/12 02:50:06
         char buffer[FIME_TIME_FORMAT_MAX_LENGTH];
@@ -59,5 +60,10 @@ struct fime_t {
     }
     bool operator < (const fime_t &other) const {
         return timercmp(&fime_time, &(other.fime_time), <);
+    }
+
+    friend std::ostream& operator<<(std::ostream& os, const fime_t &other) {
+        os << other.print_time_to_string();
+        return os;
     }
 };

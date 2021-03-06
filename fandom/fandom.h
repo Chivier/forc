@@ -2,9 +2,9 @@
  * @Author       : Chivier Humber
  * @Date         : 2021-03-04 22:25:55
  * @LastEditors  : Chivier Humber
- * @LastEditTime : 2021-03-05 01:13:06
+ * @LastEditTime : 2021-03-06 01:16:12
  * @Description  : file content
- * @FilePath     : /forc/random/fandom.h
+ * @FilePath     : /forc/fandom/fandom.h
  */
 
 #include <time.h>
@@ -108,7 +108,7 @@ class random_generator_t {
         ipnf2 = ifd2 + 1;
     }
 
-    void get() {
+    double get_rand() {
         rand_number_index++;
         if (rand_number_index >= maxlength - 1) {
             for (int index = 0; index < maxlength; ++index) {
@@ -126,8 +126,9 @@ class random_generator_t {
                 if (ipnt2 == len2) ipnt2 = 0;
                 if (ipnf2 == len2) ipnf2 = 0;
             }
+            rand_number_index = 0;
         }
-        return 1.0 * irn[rand_number_index] / (1ll << 32) + 0.5;
+        return (1.0 * irn[rand_number_index]) / (1ll << 32) + 0.5;
     }
 };
 #else
