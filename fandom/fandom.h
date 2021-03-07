@@ -2,7 +2,7 @@
  * @Author       : Chivier Humber
  * @Date         : 2021-03-04 22:25:55
  * @LastEditors  : Chivier Humber
- * @LastEditTime : 2021-03-06 01:16:12
+ * @LastEditTime : 2021-03-07 13:52:54
  * @Description  : file content
  * @FilePath     : /forc/fandom/fandom.h
  */
@@ -63,9 +63,9 @@ class random_generator_t {
     }
 
     random_generator_t(int seed):
-        mult(kMaxRandomLengthInitialExample),
+        mult(kMultInitialExample),
         mod(kModInitialExample),
-        mul(kMultInitialExample),
+        mul(kMulInitialExample),
         len1(kLen1InitialExample),
         ifd1(kIfd1InitialExample),
         len2(kLen2InitialExample),
@@ -88,7 +88,6 @@ class random_generator_t {
         int iseed = seed + 1;
         int k_r = kRandomGeneratorMagicNumber1 + 2 * iseed;
         int k1_r = kRandomGeneratorMagicNumber2 * iseed;
-
         k1_r = k1_r % mod;
         for (int index = 0; index < len1; ++index) {
             k_r = k_r * mult;
@@ -104,16 +103,16 @@ class random_generator_t {
 
         ipnt1 = 0;
         ipnt2 = 0;
-        ipnf1 = ifd1 + 1;
-        ipnf2 = ifd2 + 1;
+        ipnf1 = ifd1;
+        ipnf2 = ifd2;
     }
 
     double get_rand() {
         rand_number_index++;
         if (rand_number_index >= maxlength - 1) {
             for (int index = 0; index < maxlength; ++index) {
-                unsigned int l_r = ir1[ipnt1] ^ ir1[ipnf1 - 1];
-                unsigned int k_r = ir2[ipnt2] ^ ir2[ipnf2 - 1];
+                unsigned int l_r = ir1[ipnt1] ^ ir1[ipnf1];
+                unsigned int k_r = ir2[ipnt2] ^ ir2[ipnf2];
                 irn[index] = l_r ^ k_r;
                 ir1[ipnt1] = l_r;
                 ir1[ipnf2] = k_r;
