@@ -2,7 +2,11 @@
  * @Author       : Chivier Humber
  * @Date         : 2021-03-05 08:04:03
  * @LastEditors  : Chivier Humber
+<<<<<<< HEAD
  * @LastEditTime : 2021-03-06 21:08:00
+=======
+ * @LastEditTime : 2021-03-07 11:54:10
+>>>>>>> 976b31ac2f318e466c6af771791caaf89da76ab4
  * @Description  : file content
  * @FilePath     : /forc/test/test.cpp
  */
